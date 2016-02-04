@@ -31,11 +31,11 @@
 	border-bottom: 1px solid #f3f0f6;
 }
 .table-row:nth-child(2n+1) {
-	background: #fff8fa;
+	background: #fefefe;
 	border-bottom: 1px solid #f3f0f6;
 }
 .table-row:nth-child(2n) {
-	background: #fffdfc;
+	background: #fafafa;
 	border-bottom: 1px solid #f3f0f6;
 }
 .table-row:hover{
