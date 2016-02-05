@@ -19,6 +19,9 @@
 	cursor: pointer;
 	color: #337ab7;
 }
+.table-head .ht_skill{
+	width: 200px;
+}
 
 .table-body{
 	display: table-row-group;
