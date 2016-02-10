@@ -14,6 +14,8 @@ Guns = function (data) {
 		ammunition : data[11],
 		forage : data[12],
 		damage : data[13],
+		attEffect : 0,
+		defEffect : 0,
 		hit : data[14],
 		dodge : data[15],
 		speed : data[16],
@@ -22,6 +24,9 @@ Guns = function (data) {
 		buffeffect : data[19],
 		buffarea : data[20],
 		skill : data[21],
+		calc : function(fliter){
+			this.attEffect = (this.damage * this.firerate * Math.log(this.hit) / Math.log(fliter["enemy-dodge"])).toFixed(2);
+		}
 	}
 }
 
@@ -32,3 +37,9 @@ var guns = function() {
   }
   return ret;
 }();
+
+function calculationGuns(){
+	for (var i in guns) {
+		guns[i].calc(fliter);
+	}
+}

@@ -34,15 +34,19 @@
 				</div>
 			</div><!-- announcement -->	
 			<div class="fliter">	
-				<br/>
-				<div id='filtersTop'>
+				<div class='filtersTop'>
 				</div>
-				<div class="fliter_form_div">
+				<div id="fliter_form" class="fliter_form_div">
+					<span>敌方闪避</span><input type="text" id="enemy-dodge" class="fliter" value="30"/><br/>
+					<span><del>枪娘等级</del></span><input type="text" id="" class="fliter"><br/>
 				</div><!-- fliter_form_div -->
 			</div><!-- fliter -->
 		</div><!-- top -->
 		<hr>
-		<div id = 'sciamachy'>
+		<div id = 'sciamachyContainer'>
+		  模拟战 <button class="btn btn-default">加载阵型</button>
+		  <button class="btn btn-default" style="float:right" onclick="clearShoppingCart()">清空</button> 
+		  <div id='sciamachy' class="table"></div>
 		</div>
 		<hr>
 		<div id = "table" class="table"></div>

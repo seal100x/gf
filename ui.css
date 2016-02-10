@@ -19,8 +19,8 @@
 	cursor: pointer;
 	color: #337ab7;
 }
-.table-head .ht_skill{
-	width: 200px;
+.table-head .ht_skill,.table-head .ht_buffeffect{
+	width: 150px;
 }
 
 .table-body{
