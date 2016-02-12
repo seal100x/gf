@@ -36,7 +36,7 @@ function td(data, cls, beforeText) {
 
 function row(data) {
 	var $row = $("<div>").addClass("table-row");
-	$row.append(td(data.id, "td_id"));
+	$row.append(td("NO." + data.id, "td_id"));
 	$row.append(td(data.name, "td_name"));
 	$row.append(td(data.type, "td_type"));
 	$row.append(td(data.star, "td_star"));

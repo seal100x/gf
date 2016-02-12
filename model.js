@@ -1,6 +1,6 @@
 Guns = function (data) {
 	return {
-		id : data[29],
+		id : data[0],
 		name : data[1],
 		type : data[30],
 		star : data[4],
