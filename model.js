@@ -30,23 +30,23 @@ Guns = function (data) {
 			var addLevel = fliter["gun-level"] * 1 - 1;
 			var ratio = RATIO[this.type];
 			
-			this.hp = (NUM["life"] + addLevel * NUM2["life"]) * ratio["life"] * this.hpRatio / NUM3["life"];
+			this.hp = Math.ceil((NUM["life"] + addLevel * NUM2["life"]) * ratio["life"] * this.hpRatio / NUM3["life"]);
 	
 			var damageBase = NUM["basepow"] * ratio["pow"] * this.damageRatio / NUM2["basepow"];
 			var damageAdd = addLevel * NUM["pow"] * ratio["pow"] * this.damageRatio * this.eatRatio / NUM2["pow"] / NUM3["pow"];
-			this.damage = damageBase + damageAdd;
+			this.damage = Math.ceil(damageBase) + Math.ceil(damageAdd);
 			
 			var hitBase = NUM["basehit"] * ratio["hit"] * this.hitRatio / NUM2["basehit"];
 			var hitAdd = addLevel * NUM["hit"] * ratio["hit"] * this.hitRatio * this.eatRatio / NUM2["hit"] / NUM3["hit"];
-			this.hit = hitBase + hitAdd;
+			this.hit = Math.ceil(hitBase) + Math.ceil(hitAdd);
 			
 			var dodgeBase = NUM["basedodge"] * ratio["dodge"] * this.dodgeRatio / NUM2["basedodge"];
 			var dadgeAdd = addLevel * NUM["dodge"] * ratio["dodge"] * this.dodgeRatio * this.eatRatio / NUM2["dodge"] / NUM3["dodge"];
-			this.dodge = dodgeBase + dadgeAdd;
+			this.dodge = Math.ceil(dodgeBase) + Math.ceil(dadgeAdd);
 			
 			var firerateBase = NUM["baserate"] * ratio["rate"] * this.firerateRatio / NUM2["baserate"];
 			var firerateAdd = addLevel * NUM["rate"] * ratio["rate"] * this.firerateRatio * this.eatRatio / NUM2["rate"] / NUM3["rate"];
-			this.firerate = firerateBase + firerateAdd;
+			this.firerate = Math.ceil(firerateBase) + Math.ceil(firerateAdd);
 			
 			var hitRateAtt = BATTLE_NUM4 * this.hit / (fliter["enemy-dodge"] * 1 + BATTLE_NUM4 * this.hit)
 			this.attEffect = this.damage / (50/this.firerate) * hitRateAtt * (1 + this.crit/100);

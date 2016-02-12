@@ -41,11 +41,11 @@ function row(data) {
 	$row.append(td(data.type, "td_type"));
 	$row.append(td(data.star, "td_star"));
 	$row.append(td(data.ammunition + "/" + data.forage, "td_consume"));
-	$row.append(td(Math.ceil(data.hp), "td_HP"));
-	$row.append(td(Math.ceil(data.damage), "td_damage"));
-	$row.append(td(Math.ceil(data.hit), "td_hit"));
-	$row.append(td(Math.ceil(data.dodge), "td_dodge"));
-	$row.append(td(Math.ceil(data.firerate), "td_firerate"));
+	$row.append(td(data.hp, "td_HP"));
+	$row.append(td(data.damage, "td_damage"));
+	$row.append(td(data.hit, "td_hit"));
+	$row.append(td(data.dodge, "td_dodge"));
+	$row.append(td(data.firerate, "td_firerate"));
 	$row.append(td(data.attEffect, "td_attEffect"));
 	$row.append(td(data.defEffect, "td_defEffect"));
 	$row.append(td(data.speed, "td_speed"));
