@@ -12,8 +12,10 @@
 		<link rel="stylesheet" type="text/css" href="ui.css">
 		<link rel="stylesheet" type="text/css" href="mobileui.css" media="only screen and (max-width: 650px)">
 		<script type='text/javascript' charset="UTF-8" src='jquery.js'></script>
+		<script type='text/javascript' charset="UTF-8" src='jquery.freezeheader.js'></script>
 		<script type='text/javascript' charset="UTF-8" src="bootstrap/bootstrap.min.js"></script>
 		<script type='text/javascript' charset="UTF-8" src="tool.js"></script>
+		<script type='text/javascript' charset="UTF-8" src="constant.js"></script>
 		<script type='text/javascript' charset="UTF-8" src="guns.js"></script>
 		<script type='text/javascript' charset="UTF-8" src='ui.js'></script>
 		<script type='text/javascript' charset="UTF-8" src='model.js'></script>
@@ -30,21 +32,34 @@
 					<br/>
 				</div>
 				<div id="">
-					更新：
+					更新：<br>
+					2.13: 第一版<br>
 				</div>
 			</div><!-- announcement -->	
 			<div class="fliter">	
 				<div class='filtersTop'>
+					<select id="enemy-type">
+						<option value="1,1">选择铁血</option>
+						<option value="15,10">1-1BOSS</option>
+						<option value="35,30">3-1BOSS</option>
+						<option value="50,50">紧急4-2BOSS</option>
+					</select>
 				</div>
 				<div id="fliter_form" class="fliter_form_div">
-					<span>敌方闪避</span><input type="text" id="enemy-dodge" class="fliter" value="30"/><br/>
-					<span><del>枪娘等级</del></span><input type="text" id="" class="fliter"><br/>
+					<span>敌方命中</span><input type="text" id="enemy-hit" class="fliter" value="1"/><br/>
+					<span>敌方闪避</span><input type="text" id="enemy-dodge" class="fliter" value="1"/><br/>
+					<span>枪娘等级</span><input type="text" id="gun-level" class="fliter" value="1"><br/>
 				</div><!-- fliter_form_div -->
+				<fieldset >
+					<legend>筛选</legend>
+					<div  id="front_filter_div">
+					</div>
+				</fieldset>
 			</div><!-- fliter -->
 		</div><!-- top -->
 		<hr>
 		<div id = 'sciamachyContainer'>
-		  模拟战 <button class="btn btn-default">加载阵型</button>
+		  <del>模拟战(未实装)</del> <button class="btn btn-default">加载</button>
 		  <button class="btn btn-default" style="float:right" onclick="clearShoppingCart()">清空</button> 
 		  <div id='sciamachy' class="table"></div>
 		</div>
