@@ -12,6 +12,7 @@ function thead() {
 	$thead.append(td("回避", "ht_dodge"));
 	$thead.append(td("射速", "ht_firerate"));
 	$thead.append(td("攻击效能", "ht_attEffect"));
+	$thead.append(td("单位攻击效能", "ht_avgAttEffect"));
 	$thead.append(td("防御效能", "ht_defEffect"));
 	$thead.append(td("移速", "ht_speed"));
 	$thead.append(td("建造时间", "ht_buildtime"));
@@ -47,6 +48,7 @@ function row(data) {
 	$row.append(td(data.dodge, "td_dodge"));
 	$row.append(td(data.firerate, "td_firerate"));
 	$row.append(td(data.attEffect, "td_attEffect"));
+	$row.append(td(data.avgAttEffect, "td_avgAttEffect"));
 	$row.append(td(data.defEffect, "td_defEffect"));
 	$row.append(td(data.speed, "td_speed"));
 	$row.append(td(data.buildtime/60+"分", "td_buildtime"));

@@ -4,9 +4,10 @@ Guns = function (data) {
 		name : data[1],
 		type : data[30],
 		star : data[4],
-		ammunition : 0,
-		forage : 0,
+		ammunition : data[7],
+		forage : data[8],
 		attEffect : 0,
+		avgAttEffect : 0,
 		defEffect : 0,
 		hpRatio : data[6],
 		hp : 0,
@@ -49,10 +50,12 @@ Guns = function (data) {
 			this.firerate = Math.ceil(firerateBase) + Math.ceil(firerateAdd);
 			
 			var hitRateAtt = BATTLE_NUM4 * this.hit / (fliter["enemy-dodge"] * 1 + BATTLE_NUM4 * this.hit)
-			this.attEffect = this.damage / (50/this.firerate) * hitRateAtt * (1 + this.crit/100);
+			this.attEffect = this.damage / (50/this.firerate) * hitRateAtt * (1 + this.crit/100 * 0.5);
 			if(this.type == "机枪")
-				this.attEffect = this.damage / (4 + 200/this.firerate) * 10 * hitRateAtt * (1 + this.crit/100);
+				this.attEffect = this.damage / (4 + 200/this.firerate) * 10 * hitRateAtt * (1 + this.crit/100 * 0.5);
 			this.attEffect = this.attEffect.toFixed(1);
+			this.avgAttEffect = this.attEffect / (this.ammunition * 0.06 + this.forage * 0.05);
+			this.avgAttEffect = this.avgAttEffect.toFixed(1);
 			var hitRateDef = BATTLE_NUM4 * fliter["enemy-hit"] * 1 / (this.dodge + BATTLE_NUM4 * fliter["enemy-hit"] * 1);
 			this.defEffect = (this.hp * (1 + (1-hitRateDef))).toFixed(1);
 		}
