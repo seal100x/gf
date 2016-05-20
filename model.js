@@ -1,8 +1,11 @@
+
+var typeToChinese = ["手枪", "冲锋枪", "突击步枪", "步枪", "机枪"];
+
 Guns = function (data) {
 	return {
 		id : data[0],
 		name : data[1],
-		type : data[30],
+		type : typeToChinese[data[3]-1],
 		star : data[4],
 		ammunition : data[7],
 		forage : data[8],
@@ -21,7 +24,6 @@ Guns = function (data) {
 		firerate : 0,
 		eatRatio : data[20],
 		crit : data[15],
-		speed : data[31],
 		buildtime : data[21],
 		buffeffect : data[25],
 		buffarea : data[24],

@@ -11,10 +11,9 @@ function thead() {
 	$thead.append(td("命中", "ht_hit"));
 	$thead.append(td("回避", "ht_dodge"));
 	$thead.append(td("射速", "ht_firerate"));
-	$thead.append(td("攻击效能", "ht_attEffect"));
-	$thead.append(td("单位攻击效能", "ht_avgAttEffect"));
-	$thead.append(td("防御效能", "ht_defEffect"));
-	$thead.append(td("移速", "ht_speed"));
+	$thead.append(td("输出能力", "ht_attEffect"));
+	$thead.append(td("单位输出能力", "ht_avgAttEffect"));
+	$thead.append(td("防御能力", "ht_defEffect"));
 	$thead.append(td("建造时间", "ht_buildtime"));
 	$thead.append(td("BUFF效果", "ht_buffeffect"));
 	$thead.append(td("BUFF范围", "ht_buffrange"));
@@ -50,7 +49,6 @@ function row(data) {
 	$row.append(td(data.attEffect, "td_attEffect"));
 	$row.append(td(data.avgAttEffect, "td_avgAttEffect"));
 	$row.append(td(data.defEffect, "td_defEffect"));
-	$row.append(td(data.speed, "td_speed"));
 	$row.append(td(data.buildtime/60+"分", "td_buildtime"));
 	var strbuffeffect = "";
 	if(data.buffeffect){
