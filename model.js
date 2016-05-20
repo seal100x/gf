@@ -1,5 +1,5 @@
 
-var typeToChinese = ["手枪", "冲锋枪", "突击步枪", "步枪", "机枪"];
+var typeToChinese = ["手枪", "冲锋枪", "步枪", "突击步枪", "机枪"];
 
 Guns = function (data) {
 	return {
