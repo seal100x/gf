@@ -54,16 +54,16 @@ var RATIO = {
 		"pow" : 0.6,
 		"rate" : 1.2,
 		"speed" : 1.2,
-		"hit" : 0.4,
-		"dodge" : 1.4,
+		"hit" : 0.3,
+		"dodge" : 1.6,
 		"range" : 0.75
 	},
 	"步枪" : {
 		"life" : 0.8,
-		"pow" : 2,
-		"rate" : 0.6,
+		"pow" : 2.4,
+		"rate" : 0.5,
 		"speed" : 0.7,
-		"hit" : 1.5,
+		"hit" : 1.6,
 		"dodge" : 0.8,
 		"range" : 1.4
 	},
@@ -78,7 +78,7 @@ var RATIO = {
 	},
 	"机枪" : {
 		"life" : 1.5,
-		"pow" : 1.6,
+		"pow" : 1.8,
 		"rate" : 1.6,
 		"speed" : 0.4,
 		"hit" : 0.6,
