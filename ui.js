@@ -6,7 +6,7 @@ function thead() {
 	$thead.append(td("类型", "ht_type"));
 	$thead.append(td("星级", "ht_star"));
 	$thead.append(td("弹/粮", "ht_consume"));
-	$thead.append(td("血量", "ht_HP"));
+	$thead.append(td("血量", "ht_hp"));
 	$thead.append(td("伤害", "ht_damage"));
 	$thead.append(td("命中", "ht_hit"));
 	$thead.append(td("回避", "ht_dodge"));
@@ -41,7 +41,7 @@ function row(data) {
 	$row.append(td(data.type, "td_type"));
 	$row.append(td(data.star, "td_star"));
 	$row.append(td(data.ammunition + "/" + data.forage, "td_consume"));
-	$row.append(td(data.hp, "td_HP"));
+	$row.append(td(data.hp, "td_hp"));
 	$row.append(td(data.damage, "td_damage"));
 	$row.append(td(data.hit, "td_hit"));
 	$row.append(td(data.dodge, "td_dodge"));

@@ -42,7 +42,7 @@ function filterHTML(btn){
 			$(tableDivList[i]).show();
 		 }
 		 if(val.indexOf(".") >= 0){
-			 if($(tableDivList[i]).find(val.replace(".",".td_") + ":first").text().indexOf(str) < 0){
+			 if($(tableDivList[i]).find(val.replace(".",".td_") + ":first").text() != str){
 				$(tableDivList[i]).hide();
 			 }
 			 else{
