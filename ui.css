@@ -28,6 +28,23 @@
 	border-top: 1px solid #aaa;
 	font-size: 13px;
 }
+.td_buffrange{
+	width: 65px;
+	line-height: 0
+}
+.td_buffrange div{
+	display: inline-block;
+	margin:0;border:1px solid #aaa;padding:8px;
+}
+.td_buffrange div.nobuff{
+	background-color: white;
+}
+.td_buffrange div.isbuff{
+	background-color: lightblue;
+}
+.td_buffrange div.buffcenter{
+	background-color: lightgreen;
+}
 .table-row{
 	display: table-row;
 	transition: border-color 0.2s;
@@ -49,4 +66,12 @@
 	padding: 4px;
 	vertical-align: middle;
 	transition: color 0.2s;
+}
+
+#bufflist .buff-block{
+	margin: 5px;
+	display: inline-block;
+	width: 180px;
+	height: 75px;
+	border: 2px solid #ccc;
 }

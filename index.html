@@ -29,15 +29,17 @@
 		</div>
 		<div class='top'>
 			<div class="announcement">
-				<div id="update_history">
-					<br/>
-				</div>
 				<div id="">
-					更新：<br>
-					2.13: 第一版, 讨论Q群529134399<br>
+					讨论Q群529134399<br>
+					更新记录：<br>
+				<div id="update_history">
+					2.13: 第一版<br>
 					5.20: 更新公测数据<br>
 					5.23: 调整部分数据<br>
-					5.24: 调整筛选, 修复HP排序<br>
+				</div>
+					5.24: 调整步枪筛选, 修复HP排序<br>
+					5.25: 添加BUFF适用枪种, 调整BUFF展示效果, 可以添加BUFF列表(尚未列入计算)<br>
+					<a href="#" id="show_history" onclick='$("#update_history").show()'>查看历史更新</a>
 				</div>
 			</div><!-- announcement -->	
 			<div class="fliter">	
@@ -64,9 +66,9 @@
 		</div><!-- top -->
 		<hr>
 		<div id = 'sciamachyContainer'>
-		  <del>模拟战(未实装)</del> <button class="btn btn-default">加载</button>
-		  <button class="btn btn-default" style="float:right" onclick="clearShoppingCart()">清空</button> 
-		  <div id='sciamachy' class="table"></div>
+		  BUFF列表(尚未列入计算)
+		  <button class="btn btn-default" style="float:right" onclick="clearBufflist()">清空</button> 
+		  <div id='bufflist' class=""></div>
 		</div>
 		<hr>
 		<div id = "table" class="table"></div>

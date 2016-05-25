@@ -1,4 +1,4 @@
-body{
+/**body{
 	padding: 0;
 	margin: 0.5em;
 }
@@ -6,7 +6,7 @@ input[type=checkbox], input[type=radio] {
     margin: 4px 0 0;
 }
 
-/************************/
+
 .fliter_form_div_left{
 	float: none;
 	margin: 0;
@@ -83,4 +83,4 @@ div.fliter_option .checkbox{
 	content: attr(before-text);
 	padding: 0 1px 0 0;
 	font-weight: normal;
-}
+}**/

@@ -18,7 +18,7 @@ function thead() {
 	$thead.append(td("BUFF效果", "ht_buffeffect"));
 	$thead.append(td("BUFF范围", "ht_buffrange"));
 	$thead.append(td("技能效果", "ht_skill"));
-	$thead.append(td("", ""));
+	//$thead.append(td("", ""));
 	
 	$td_nbsp = td("回到顶部", "th_gotop");
 	$td_nbsp.addClass("gogogo-top");
@@ -49,7 +49,9 @@ function row(data) {
 	$row.append(td(data.attEffect, "td_attEffect"));
 	$row.append(td(data.avgAttEffect, "td_avgAttEffect"));
 	$row.append(td(data.defEffect, "td_defEffect"));
-	$row.append(td(data.buildtime/60+"分", "td_buildtime"));
+	var time  = Math.floor(data.buildtime/60/60) == 0 ? '' : Math.floor(data.buildtime/60/60) + "小时";
+	time += data.buildtime/60%60 == 0 ? "" : data.buildtime/60%60 + "分";
+	$row.append(td(time , "td_buildtime"));
 	var strbuffeffect = "";
 	if(data.buffeffect){
 		var effects = data.buffeffect.split(";");
@@ -58,19 +60,23 @@ function row(data) {
 			strbuffeffect += BUFFTYPE[effect.split(",")[0]] + "上升" + effect.split(",")[1] + "%;";
 		}
 	}
-	$row.append(td(strbuffeffect, "td_buffeffect"));
+	$row.append(td(data.buffeffecttype + strbuffeffect, "td_buffeffect"));
 	
-	var buffarea = ["X","X","X<br>","X","#","X<br>","X","X","X"];
+	var buffarea = ["nobuff","nobuff","nobuff","nobuff","buffcenter","nobuff","nobuff","nobuff","nobuff"];
 	if(data.buffarea){
 		var areas = data.buffarea.split(",");
 		for(var i in areas){
 			var point = ((areas[i]*1-1) % 3) * 3 + Math.floor((areas[i]*1-1) / 3) + 1;
-			buffarea[point-1] = buffarea[point-1].replace("X","O");
+			buffarea[point-1] = buffarea[point-1].replace("nobuff","isbuff");
 		}		
 	}
-	$row.append(td(buffarea.join(""), "td_buffrange"));
+	var $tdBuff = td("", "td_buffrange");
+	for(var b in buffarea){
+		$tdBuff.append($("<div></div>").addClass(buffarea[b]));
+	}
+	$row.append($tdBuff);
 	$row.append(td(data.skill, "td_skill"));
-	$row.append(td(sciamachyButton(data.name, data.id), 'icon'));
+	//$row.append(td(sciamachyButton(data.name, data.id), 'icon'));
 	$row.append(td(buffButton(data.name, data.id), 'icon'));
 	return $row;
 }
@@ -94,10 +100,26 @@ function sciamachyButton(name, id) {
 function buffButton(name, id){
 	$buffButton = $("<button>").addClass("glyphicon btn btn-default").text("BUFF");
 	$buffButton.click(function () {
-		
+		bufflist.push($(this).parent().parent());
+		refreshBufflist();
 	});
-	return $buffButton;
-	
+	return $buffButton;	
+}
+
+function refreshBufflist(){
+	var $bufflist = $("#bufflist");
+	$bufflist.empty();
+	for(var i in bufflist){
+		var $buff = $("<div></div>").addClass("buff-block");
+		$buff.append(bufflist[i].find(".td_buffeffect:first").clone());
+		$buff.append(bufflist[i].find(".td_buffrange:first").clone());
+		$bufflist.append($buff);
+	}	
+}
+
+function clearBufflist(){
+	bufflist = [];
+	refreshBufflist();
 }
 
 function drawTable(data, divId) {
