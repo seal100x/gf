@@ -60,7 +60,7 @@ Guns = function (data) {
 			this.avgAttEffect = this.attEffect / (this.ammunition * 0.06 + this.forage * 0.05);
 			this.avgAttEffect = this.avgAttEffect.toFixed(1);
 			var hitRateDef = BATTLE_NUM4 * fliter["enemy-hit"] * 1 / (this.dodge + BATTLE_NUM4 * fliter["enemy-hit"] * 1);
-			this.defEffect = (this.hp * (1 + (1 - hitRateDef))).toFixed(1);
+			this.defEffect = (this.hp / hitRateDef).toFixed(1);
 		}
 	}
 }
