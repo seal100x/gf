@@ -31,7 +31,7 @@ Guns = function (data) {
 		skill1 : data[26],
 		skill2 : "",
 		calc : function (fliter) {
-			var addLevel = fliter["gun-level"] * 1 - 1;
+						var addLevel = fliter["gun-level"] * 1 - 1;
 			var ratio = RATIO[this.type];
 
 			this.hp = Math.ceil((NUM["life"] + addLevel * NUM2["life"]) * ratio["life"] * this.hpRatio / NUM3["life"]);
@@ -52,6 +52,21 @@ Guns = function (data) {
 			var firerateAdd = addLevel * NUM["rate"] * ratio["rate"] * this.firerateRatio * this.eatRatio / NUM2["rate"] / NUM3["rate"];
 			this.firerate = Math.ceil(firerateBase) + Math.ceil(firerateAdd);
 
+			for(var i in buffinfo){
+				if(buffinfo[i].buffeffecttype == "所有枪种: " || buffinfo[i].buffeffecttype == this.type + ": "){
+					var effects = buffinfo[i].buffeffect.split(";");
+					for(var j in effects){
+						switch(effects[j].split(",")[0]){
+							case "1": this.damage = Math.ceil(this.damage * (1+effects[j].split(",")[1]/100));break;
+							case "2": this.firerate = Math.ceil(this.firerate * (1+effects[j].split(",")[1]/100));break;
+							case "3": this.hit = Math.ceil(this.hit * (1+effects[j].split(",")[1]/100));break;
+							case "4": this.dodge = Math.ceil(this.dodge * (1+effects[j].split(",")[1]/100));break;
+							case "5": this.crit = Math.ceil(this.crit * (1+effects[j].split(",")[1]/100));break;
+						}
+					}
+				}
+			}			
+			
 			var hitRateAtt = BATTLE_NUM4 * this.hit / (fliter["enemy-dodge"] * 1 + BATTLE_NUM4 * this.hit)
 				this.attEffect = this.damage / (50 / this.firerate) * hitRateAtt * (1 + this.crit / 100 * 0.5);
 			if (this.type == "机枪")
@@ -74,6 +89,7 @@ var guns = function () {
 }();
 
 var bufflist = [];
+var buffinfo = [];
 
 function calculationGuns() {
 	for (var i in guns) {

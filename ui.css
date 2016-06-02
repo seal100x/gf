@@ -22,6 +22,9 @@
 .table-head .ht_skill,.table-head .ht_buffeffect{
 	width: 150px;
 }
+.ht_mobile{
+	display: none !important;
+}
 
 .table-body{
 	display: table-row-group;

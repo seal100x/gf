@@ -1,6 +1,7 @@
 
 function thead() {
 	var $thead = $("<div>").addClass("table-head");
+	$thead.append(td("排序: ", "ht_mobile"));
 	$thead.append(td("ID", "ht_id"));
 	$thead.append(td("名称", "ht_name"));
 	$thead.append(td("类型", "ht_type"));
@@ -41,14 +42,14 @@ function row(data) {
 	$row.append(td(data.type, "td_type"));
 	$row.append(td(data.star, "td_star"));
 	$row.append(td(data.ammunition + "/" + data.forage, "td_consume"));
-	$row.append(td(data.hp, "td_hp"));
-	$row.append(td(data.damage, "td_damage"));
-	$row.append(td(data.hit, "td_hit"));
-	$row.append(td(data.dodge, "td_dodge"));
-	$row.append(td(data.firerate, "td_firerate"));
-	$row.append(td(data.attEffect, "td_attEffect"));
-	$row.append(td(data.avgAttEffect, "td_avgAttEffect"));
-	$row.append(td(data.defEffect, "td_defEffect"));
+	$row.append(td(data.hp, "td_hp", "血"));
+	$row.append(td(data.damage, "td_damage", "伤"));
+	$row.append(td(data.hit, "td_hit", "命"));
+	$row.append(td(data.dodge, "td_dodge", "闪"));
+	$row.append(td(data.firerate, "td_firerate", "速"));
+	$row.append(td(data.attEffect, "td_attEffect", "dps"));
+	$row.append(td(data.avgAttEffect, "td_avgAttEffect", "adps"));
+	$row.append(td(data.defEffect, "td_defEffect", "def"));
 	var time  = Math.floor(data.buildtime/60/60) == 0 ? '' : Math.floor(data.buildtime/60/60) + "小时";
 	time += data.buildtime/60%60 == 0 ? "" : data.buildtime/60%60 + "分";
 	$row.append(td(time , "td_buildtime"));
@@ -77,7 +78,7 @@ function row(data) {
 	$row.append($tdBuff);
 	$row.append(td(data.skill, "td_skill"));
 	//$row.append(td(sciamachyButton(data.name, data.id), 'icon'));
-	$row.append(td(buffButton(data.name, data.id), 'icon'));
+	$row.append(td(buffButton(data.name, data.id, data.buffeffect, data.buffeffecttype), 'icon'));
 	return $row;
 }
 
@@ -97,10 +98,11 @@ function sciamachyButton(name, id) {
 	return $sciamachyButton;
 }
 
-function buffButton(name, id){
+function buffButton(name, id, buffeffect, buffeffecttype){
 	$buffButton = $("<button>").addClass("glyphicon btn btn-default").text("BUFF");
 	$buffButton.click(function () {
 		bufflist.push($(this).parent().parent());
+		buffinfo.push({buffeffect, buffeffecttype});
 		refreshBufflist();
 	});
 	return $buffButton;	
@@ -115,6 +117,8 @@ function refreshBufflist(){
 		$buff.append(bufflist[i].find(".td_buffrange:first").clone());
 		$bufflist.append($buff);
 	}	
+	calculationGuns();
+	drawTable(guns, "table");
 }
 
 function clearBufflist(){

@@ -1,12 +1,3 @@
-/**body{
-	padding: 0;
-	margin: 0.5em;
-}
-input[type=checkbox], input[type=radio] {
-    margin: 4px 0 0;
-}
-
-
 .fliter_form_div_left{
 	float: none;
 	margin: 0;
@@ -56,8 +47,18 @@ div.fliter_option .checkbox{
 	padding-right: 0.3em
 }
 /************************/
-.table-head{
-	display:none;	
+#fixed-header{
+	display: none;
+}
+.table-head div{
+	display: none;
+}
+.table-head .ht_damage, .table-head .ht_hit,.table-head .ht_dodge,.table-head .ht_firerate,
+.table-head .ht_attEffect,.table-head .ht_avgAttEffect,.table-head .ht_defEffect, .table-head .ht_mobile{
+	display: inline-block;
+}
+.ht_mobile{
+	display: inline-block!important;
 }
 .table-row{
 	float: left;
@@ -68,14 +69,14 @@ div.fliter_option .checkbox{
 	margin-top: -1.7em;
 	float: right;
 }
-.table-td:nth-child(6), .table-td:nth-child(7){
+.table-td:nth-child(15){
 	clear: left
 }
 .table-td{
 	padding: 0.2em;
 	float: left;
 }
-.table-td.empty{
+.table-td.empty,.table-td.td_star,.table-td.td_consume,.table-td.td_id{
 	display:none;
 }
 .table-td[before-text]:before {
@@ -83,4 +84,17 @@ div.fliter_option .checkbox{
 	content: attr(before-text);
 	padding: 0 1px 0 0;
 	font-weight: normal;
-}**/
+}
+.td_buffrange{
+	width: 37px
+}
+.td_buffrange.table-td div{
+	padding: 4px;
+}
+#bufflist .buff-block{
+	width: 140px;
+    height: 90px;
+}
+
+
+
