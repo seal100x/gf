@@ -102,7 +102,7 @@ function buffButton(name, id, buffeffect, buffeffecttype){
 	$buffButton = $("<button>").addClass("glyphicon btn btn-default").text("BUFF");
 	$buffButton.click(function () {
 		bufflist.push($(this).parent().parent());
-		buffinfo.push({buffeffect, buffeffecttype});
+		buffinfo.push({"buffeffect":buffeffect, "buffeffecttype":buffeffecttype});
 		refreshBufflist();
 	});
 	return $buffButton;	
@@ -123,6 +123,7 @@ function refreshBufflist(){
 
 function clearBufflist(){
 	bufflist = [];
+	buffinfo = [];
 	refreshBufflist();
 }
 
